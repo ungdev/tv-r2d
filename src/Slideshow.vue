@@ -12,8 +12,6 @@
 <script>
 const TIMEOUT = 8000;
 
-console.log(process.env.TVLOCATION);
-
 // Load all pictures/fonts
 const assets = require.context(
     './assets',
@@ -27,7 +25,7 @@ let pictureList = assets
 
 // Add custom image based on env
 const custom = `./${process.env.TVLOCATION}.png`;
-console.log(custom, assets.keys().indexOf(custom) > -1);
+
 if (assets.keys().indexOf(custom) > -1) {
     const newPictureList = [];
 

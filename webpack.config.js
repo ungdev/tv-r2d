@@ -23,7 +23,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|woff2)$/,
         loader: 'file-loader',
         options: {
           name: '/assets/[name].[ext]?[hash]'

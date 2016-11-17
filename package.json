@@ -11,6 +11,7 @@
     "prod:chapiteau": "rimraf dist && cross-env TVLOCATION=chapiteau npm run build && npm run serve"
   },
   "dependencies": {
+    "countdown": "^2.6.0",
     "node-static": "^0.7.9",
     "vue": "^2.0.1"
   },

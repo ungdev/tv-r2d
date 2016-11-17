@@ -1,17 +1,49 @@
 <template>
     <div class="tv-app">
-        <Slideshow></Slideshow>
+        <Slideshow v-if="!countdownEnabled"></Slideshow>
+        <Countdown v-if="countdownEnabled"></Countdown>
     </div>
 </template>
 
 <script>
 import Slideshow from './Slideshow.vue';
+import Countdown from './Countdown.vue';
+
+const KEEPCOUNTDOWNFOR = 5 * 60 * 1000;
 
 export default {
     name: 'app',
 
     components: {
-        Slideshow
+        Slideshow,
+        Countdown
+    },
+
+    data() {
+        return {
+            countdownEnabled: false
+        }
+    },
+
+    mounted() {
+        this.checkCountdown();
+    },
+
+    destroyed() {
+        clearTimeout(this.timeout);
+    },
+
+    methods: {
+        checkCountdown() {
+            const now = new Date();
+
+            // Must be after 23:50 and before 00:05
+            if (window.target - now <= 0 && window.target - now >= -1 * KEEPCOUNTDOWNFOR) {
+                this.countdownEnabled = true;
+            }
+
+            this.timeout = setTimeout(() => this.checkCountdown(), 500);
+        }
     }
 }
 </script>
