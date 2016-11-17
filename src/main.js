@@ -9,5 +9,5 @@ new Vue({
 window.today  = new Date();
 window.target = new Date(window.today);
 target.setHours(23);
-target.setMinutes(19);
+target.setMinutes(50);
 target.setSeconds(0);

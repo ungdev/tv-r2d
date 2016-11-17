@@ -40,6 +40,8 @@ export default {
             // Must be after 23:50 and before 00:05
             if (window.target - now <= 0 && window.target - now >= -1 * KEEPCOUNTDOWNFOR) {
                 this.countdownEnabled = true;
+            } else {
+                this.countdownEnabled = false;
             }
 
             this.timeout = setTimeout(() => this.checkCountdown(), 500);
