@@ -5,10 +5,10 @@
   "private": true,
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "serve": "static . -p 8080 -a 0.0.0.0",
-    "prod:m500": "rimraf dist && cross-env TVLOCATION=m500 npm run build && npm run serve",
-    "prod:asanutt": "rimraf dist && cross-env TVLOCATION=asanutt npm run build && npm run serve",
-    "prod:chapiteau": "rimraf dist && cross-env TVLOCATION=chapiteau npm run build && npm run serve"
+    "serve": "static . -a 0.0.0.0",
+    "prod:m500": "rimraf dist && cross-env TVLOCATION=m500 npm run build && npm run serve -- -p 8000",
+    "prod:asanutt": "rimraf dist && cross-env TVLOCATION=asanutt npm run build && npm run serve -- -p 8001",
+    "prod:chapiteau": "rimraf dist && cross-env TVLOCATION=chapiteau npm run build && npm run serve -- -p 8002"
   },
   "dependencies": {
     "countdown": "^2.6.0",
